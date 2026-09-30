@@ -193,6 +193,13 @@ node scripts/perf.mjs http://localhost:5391/?dev 4
 
 ## 마무리 검증 결과 (2026-09-30)
 
+### 공개 저장소와 Pages 배포
+
+- 공개 저장소: https://github.com/Legerdo/beat-foundry, 게임 URL: https://legerdo.github.io/beat-foundry/.
+- `main` 브랜치를 새로 초기화했다. 커밋에는 GitHub noreply 이메일을 사용하고 의존성/빌드/플레이테스트 산출물은 제외한다.
+- `.github/workflows/pages.yml`은 `main` push 또는 수동 실행 시 Node.js 24로 `npm ci`/`npm test`/`npm run build` 후 `dist/`를 Pages에 배포한다. Pages 소스는 GitHub Actions이다. README에 공개 링크와 배포 방법을 추가했다.
+- 로컬 테스트 42개/빌드 통과. 공개 배포 성공 및 실제 URL 검증은 GitHub Actions 실행 결과와 출시 보고를 확인한다.
+
 ### 최신 변경: 굽기 목표와 전체 반복 대기 축소
 
 - 굽기 비용을 I 400M→120M, II 8B→2.4B, III 2T→400B로 낮췄다. 기존 `castCost()`가 목표/버튼/실제 차감/자동 굽기 자금 치트/굽는 중 저장 환불을 계속 공유한다. 모든 레이어에 최소 1개 음표가 있어야 굽는 조건은 유지한다.
