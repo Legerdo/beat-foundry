@@ -1,0 +1,20 @@
+{
+  "name": "beat-foundry",
+  "private": true,
+  "version": "1.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "sim": "vitest run tests/sim.test.ts --silent=false",
+    "playtest": "node scripts/playtest.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.63.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
+  }
+}

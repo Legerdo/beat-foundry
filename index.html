@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#060507" />
+    <meta name="description" content="Beat Foundry: a rhythm incremental game. Forge one heartbeat into a roaring musical machine." />
+    <title>BEAT FOUNDRY</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23120d0a'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23ff7a2a'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff4a2a' stroke-width='3' stroke-dasharray='4 6'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <canvas id="stage" aria-hidden="true"></canvas>
+
+    <div id="hud">
+      <header id="top">
+        <div id="trackinfo">
+          <div id="t-name">IGNITION</div>
+          <div id="t-meta">TRACK I</div>
+        </div>
+        <div id="top-actions">
+          <button id="btn-mute" class="icon" data-i18n-aria="top.mute">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <button id="btn-settings" class="icon" data-i18n-aria="top.settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="7" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+        </div>
+      </header>
+      <div id="judgement" data-active="false" aria-hidden="true">
+        <span id="judgement-label"></span>
+        <span id="judgement-value"></span>
+      </div>
+
+      <div id="counter">
+        <div id="sparks">0</div>
+        <div id="rate"></div>
+      </div>
+      <div id="goal">
+        <div id="goal-text"></div>
+        <div class="goal-bar"><i id="goal-fill"></i></div>
+      </div>
+      <div id="sectiontag"></div>
+
+      <button id="pour" hidden></button>
+      <div id="banner" aria-live="polite"></div>
+      <div id="coach" aria-live="polite">
+        <div class="coach-head">
+          <span id="coach-label"></span>
+          <span id="coach-progress"></span>
+          <button id="coach-skip" class="coach-skip"></button>
+        </div>
+        <div id="coach-title"></div>
+        <div id="coach-body"></div>
+      </div>
+      <div id="keys" aria-hidden="true" data-i18n="keys"></div>
+
+      <aside id="bench" aria-label="Workbench">
+        <div class="bench-title" data-i18n="bench.title"></div>
+        <div id="layers"></div>
+        <div id="more-layers" class="more" data-i18n="bench.more"></div>
+        <div id="mods-wrap">
+          <div class="bench-sub" data-i18n="bench.mods"></div>
+          <div id="mods"></div>
+          <div id="mods-hint"></div>
+        </div>
+        <div id="cast" hidden>
+          <div class="cast-title" data-i18n="cast.title"></div>
+          <div class="cast-text" data-i18n="cast.text"></div>
+          <div class="goal-bar"><i id="cast-fill"></i></div>
+          <button id="cast-btn" class="forge cast-btn"></button>
+        </div>
+        <label id="apprentice" hidden><input type="checkbox" id="apprentice-toggle" /> <span data-i18n="apprentice"></span></label>
+      </aside>
+    </div>
+
+    <div id="title" class="overlay">
+      <button id="title-lang" class="ghost lang-toggle"></button>
+      <div class="title-inner">
+        <div class="kicker" data-i18n="title.kicker"></div>
+        <h1>BEAT<br />FOUNDRY</h1>
+        <p class="lede" data-i18n="title.lede"></p>
+        <button id="start-btn" class="primary big"></button>
+        <div id="continue-line" class="small"></div>
+        <div class="small dim" data-i18n="title.foot"></div>
+      </div>
+    </div>
+
+    <div id="modal" class="overlay" hidden>
+      <div id="modal-panel" class="panel" role="dialog" aria-modal="true"></div>
+    </div>
+    <div id="toast" role="status"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
